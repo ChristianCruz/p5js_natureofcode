@@ -20,15 +20,17 @@ function Walker() {
   // with vectors
 	this.pos = createVector(width/2, height/2);
   this.vel = createVector(0, 0);
-  this.acc = createVector(0, 0.1)
 
 	// Add movement (update function)
 	this.update = function () {
+    // acceleration
+    this.acc = createVector(random(-1, 1), random(-1, 1));
+    this.acc.mult(0.1);
+
     // the position changes by adding velocity
-    this.pos.add(this.vel);
     // the velocity changes by adding acceleration
     this.vel.add(this.acc);
-		// Acceleration gives a sense of gravitational pull
+		this.pos.add(this.vel);
 	}
 
 	// What is and where to show the object
