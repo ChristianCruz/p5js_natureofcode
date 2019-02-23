@@ -16,15 +16,14 @@ function draw() {
 
 // 01. Create & define the object
 function Walker() {
-	// Define starting position with vectors instead of:
-	// this.x = width/2;
-	// this.y = height/2;
+	// Define starting position with vectors 
 	this.pos = createVector(width/2, height/2);
 
 	// Add movement (walking function)
 	this.walk = function () {
-		this.pos.x = this.pos.x + random(-1, 1);
-		this.pos.y = this.pos.y + random(-1, 1);
+    // using vector addition
+		this.vel = createVector(random(-2, 2), random(-2, 2));
+		this.pos = this.pos.add(this.vel);
 	}
 
 	// What is and where to show the object
